@@ -23,6 +23,7 @@ public class Main extends Application {
 	
 	BookingStage bookingStage = new BookingStage(this);
 	ConfirmBox confirmBox = new ConfirmBox();
+	FileProcessing fileProcessing = new FileProcessing();
 	
 	Button btnNewBooking;
 	Button btnShowBookings;
@@ -32,14 +33,20 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+			
+			guestList = fileProcessing.deserializeGuest(guestList);
+			roomList = fileProcessing.deserializeRoom(roomList);
+			if(roomList.isEmpty())
+			{
+				bookingStage.createRooms();
+			}
+			
 			mainMenu = primaryStage;
 			mainMenu.setTitle("Hotell Wigell");
 			mainMenu.setOnCloseRequest( e -> {
 				e.consume();
 				closeProgram();
 			});
-			
-			roomList = bookingStage.createRooms(); // Skapa upp alla rum.
 			
 			//Använd detta till att välja datum vid ny bokning...
 			DatePicker datePicker = new DatePicker();
@@ -88,6 +95,7 @@ public class Main extends Application {
 			mainMenu.show();
 		} catch(Exception e) {
 			e.printStackTrace();
+			System.out.println("Fel i main");
 		}
 	}
 		private void closeProgram()
@@ -95,7 +103,8 @@ public class Main extends Application {
 			Boolean answer = confirmBox.display("Bekräftelse", "Avsluta Program?");
 			if (answer == true)
 			{
-				// Spara till fil här!
+				fileProcessing.serializeGuest(guestList);
+				fileProcessing.serializeRoom(roomList);
 				mainMenu.close();
 			}
 		}

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="20.0.2" class="java.beans.XMLDecoder">
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="application.Guest" id="Guest0">
+    <void property="EMail">
+     <string>M.Goras@hotmail.com</string>
+    </void>
+    <void property="bookingNumber">
+     <int>8030</int>
+    </void>
+    <void property="dates">
+     <void method="add">
+      <object class="java.time.LocalDate" method="parse">
+       <string>2024-01-08</string>
+      </object>
+     </void>
+     <void method="add">
+      <object class="java.time.LocalDate" method="parse">
+       <string>2024-01-09</string>
+      </object>
+     </void>
+     <void method="add">
+      <object class="java.time.LocalDate" method="parse">
+       <string>2024-01-10</string>
+      </object>
+     </void>
+    </void>
+    <void property="name">
+     <string>Markus Göras</string>
+    </void>
+    <void property="numberOfNights">
+     <int>2</int>
+    </void>
+    <void property="phoneNumber">
+     <string>072-2316393</string>
+    </void>
+    <void property="roomNumber">
+     <int>8</int>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>

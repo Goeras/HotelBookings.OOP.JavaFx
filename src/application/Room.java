@@ -1,11 +1,16 @@
 package application;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Room {
+public abstract class Room implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3769127735838656806L;
 	protected String roomName;
 	protected String roomStandard;
 	protected int roomNumber;
@@ -63,12 +68,18 @@ public abstract class Room {
 	{
 		this.guests.add(guest);
 	}
+	public void setGuests(List<Guest> guest) { // Används för XMLEncoding..
+		this.guests = guest;
+	}
 	public void removeGuest(List<Guest> guest) {
 		this.guests.removeAll(guest);
 	}
 
 	public List<LocalDate> getDates() {
 		return dates;
+	}
+	public void setDates(List<LocalDate> dates) { // Används för XMLEncoding..
+		this.dates = dates;
 	}
 
 	public void addDates(List<LocalDate> dates) {

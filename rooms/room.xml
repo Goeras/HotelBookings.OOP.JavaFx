@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="20.0.2" class="java.beans.XMLDecoder">
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="application.SingleRoom">
+    <void property="roomName">
+     <string>Single Room 1</string>
+    </void>
+    <void property="roomNumber">
+     <int>1</int>
+    </void>
+    <void property="roomStandard">
+     <string>yard view</string>
+    </void>
+    <void property="size">
+     <string>Single</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="application.SingleRoom">
+    <void property="roomName">
+     <string>Single Room 2</string>
+    </void>
+    <void property="roomNumber">
+     <int>2</int>
+    </void>
+    <void property="roomStandard">
+     <string>yard view</string>
+    </void>
+    <void property="size">
+     <string>Single</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="application.SingleRoom">
+    <void property="roomName">
+     <string>Single Room 3</string>
+    </void>
+    <void property="roomNumber">
+     <int>3</int>
+    </void>
+    <void property="roomStandard">
+     <string>Street view</string>
+    </void>
+    <void property="size">
+     <string>Single</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="application.SingleRoom">
+    <void property="roomName">
+     <string>Single Room 4</string>
+    </void>
+    <void property="roomNumber">
+     <int>4</int>
+    </void>
+    <void property="roomStandard">
+     <string>Street view</string>
+    </void>
+    <void property="size">
+     <string>Single</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="application.SingleRoom">
+    <void property="roomName">
+     <string>Single Room 5</string>
+    </void>
+    <void property="roomNumber">
+     <int>5</int>
+    </void>
+    <void property="roomStandard">
+     <string>Sea view</string>
+    </void>
+    <void property="size">
+     <string>Single</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="application.SingleRoom">
+    <void property="roomName">
+     <string>Single Room 6</string>
+    </void>
+    <void property="roomNumber">
+     <int>6</int>
+    </void>
+    <void property="roomStandard">
+     <string>Sea view</string>
+    </void>
+    <void property="size">
+     <string>Single</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="application.DoubleRoom">
+    <void property="roomName">
+     <string>Double Room 1</string>
+    </void>
+    <void property="roomNumber">
+     <int>7</int>
+    </void>
+    <void property="roomStandard">
+     <string>yard view</string>
+    </void>
+    <void property="size">
+     <string>Double</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="application.DoubleRoom" id="DoubleRoom0">
+    <void property="dates">
+     <void method="add">
+      <object class="java.time.LocalDate" method="parse">
+       <string>2024-01-08</string>
+      </object>
+     </void>
+     <void method="add">
+      <object class="java.time.LocalDate" method="parse">
+       <string>2024-01-09</string>
+      </object>
+     </void>
+     <void method="add">
+      <object class="java.time.LocalDate" method="parse">
+       <string>2024-01-10</string>
+      </object>
+     </void>
+    </void>
+    <void property="roomName">
+     <string>Double Room 2</string>
+    </void>
+    <void property="roomNumber">
+     <int>8</int>
+    </void>
+    <void property="roomStandard">
+     <string>yard view</string>
+    </void>
+    <void property="size">
+     <string>Double</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="application.DoubleRoom">
+    <void property="roomName">
+     <string>Double Room 3</string>
+    </void>
+    <void property="roomNumber">
+     <int>9</int>
+    </void>
+    <void property="roomStandard">
+     <string>Street view</string>
+    </void>
+    <void property="size">
+     <string>Double</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="application.DoubleRoom">
+    <void property="roomName">
+     <string>Double Room 4</string>
+    </void>
+    <void property="roomNumber">
+     <int>10</int>
+    </void>
+    <void property="roomStandard">
+     <string>Sea view</string>
+    </void>
+    <void property="size">
+     <string>Double</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="application.SuiteRoom">
+    <void property="roomName">
+     <string>Suite Room 1</string>
+    </void>
+    <void property="roomNumber">
+     <int>11</int>
+    </void>
+    <void property="roomStandard">
+     <string>Sea view</string>
+    </void>
+    <void property="size">
+     <string>Suite</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="application.SuiteRoom">
+    <void property="roomName">
+     <string>Suite Room 2</string>
+    </void>
+    <void property="roomNumber">
+     <int>12</int>
+    </void>
+    <void property="roomStandard">
+     <string>Sea view</string>
+    </void>
+    <void property="size">
+     <string>Suite</string>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>
