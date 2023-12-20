@@ -37,15 +37,4 @@
     -fx-padding: 8 29 8 31;
 }
 
-/* Hover effect for the buttons */
-.button#quit:hover {
-    -fx-background-color: linear-gradient(to bottom, #65c765, #3ca53c);
-}
-
-/* Pressed effect for the buttons */
-.button#quit:pressed {
-    -fx-background-color: linear-gradient(to bottom, #5ba85b, #398b39);
-    -fx-background-insets: 0, 1, 2, 0;
-    -fx-padding: 8 29 8 31;
-}
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
