@@ -5,25 +5,22 @@ import javafx.scene.control.ButtonType;
 
 public class ConfirmBox {
 
-	public boolean display(String title, String message)
+	public boolean display(String title, String message) // En ConfirmBox som tar strängar för titel och meddelande för att kunna använda metoden i olika sammanhang.
 	{
 		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);
 
-        // Set custom button types (Yes and No)
         ButtonType buttonTypeYes = new ButtonType("Ja");
         ButtonType buttonTypeNo = new ButtonType("Nej");
         alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
-        // Show the confirmation dialog and wait for the user's response
         alert.showAndWait();
-
-        // Return true if the user clicked "Yes," false otherwise
-        return alert.getResult() == buttonTypeYes;
+        
+        return alert.getResult() == buttonTypeYes; // Returnerar true om användaren tryckt "JA", annars false.
 	}
 	
-	public void alertBox(String title, String message)
+	public void alertBox(String title, String message) // En AlertBox som tar strängar för titel och meddelande för att kunna använda metoden i olika sammanhang.
 	{
 		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle(title);

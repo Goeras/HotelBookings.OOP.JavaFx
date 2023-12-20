@@ -40,5 +40,44 @@
     </void>
    </object>
   </void>
+  <void method="add">
+   <object class="application.Guest" id="Guest1">
+    <void property="EMail">
+     <string>Hasse.A@kändis.nu</string>
+    </void>
+    <void property="bookingNumber">
+     <int>3189</int>
+    </void>
+    <void property="dates">
+     <void method="add">
+      <object class="java.time.LocalDate" method="parse">
+       <string>2023-12-25</string>
+      </object>
+     </void>
+     <void method="add">
+      <object class="java.time.LocalDate" method="parse">
+       <string>2023-12-26</string>
+      </object>
+     </void>
+     <void method="add">
+      <object class="java.time.LocalDate" method="parse">
+       <string>2023-12-27</string>
+      </object>
+     </void>
+    </void>
+    <void property="name">
+     <string>Hasse Alfredsson</string>
+    </void>
+    <void property="numberOfNights">
+     <int>2</int>
+    </void>
+    <void property="phoneNumber">
+     <string>070-2659872</string>
+    </void>
+    <void property="roomNumber">
+     <int>2</int>
+    </void>
+   </object>
+  </void>
  </object>
 </java>

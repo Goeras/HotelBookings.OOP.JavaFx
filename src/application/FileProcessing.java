@@ -13,7 +13,6 @@ public class FileProcessing {
 
 	public void serializeGuest(List<Guest> guestList) {
         for (Guest guest : guestList) {
-            System.out.println(guest.getName());
         }
         try {
             String filepath = "./bookings/bookings.xml";
@@ -24,7 +23,7 @@ public class FileProcessing {
             FileOutputStream fileOutputStream = new FileOutputStream(file);
             XMLEncoder xmlEncoder = new XMLEncoder(fileOutputStream);
 
-            // Set the PersistenceDelegate for LocalDate
+            // Specialare för att XMLEncoder ska kunna hantera LocalDate
             xmlEncoder.setPersistenceDelegate(LocalDate.class, new LocalDatePersistenceDelegate());
 
             xmlEncoder.writeObject(guestList);
@@ -65,7 +64,7 @@ public class FileProcessing {
 			System.out.println("File is probably empty.");
 		}
 
-		return guestList; // Return the deserialized guest list
+		return guestList;
 	}
 
 	public void serializeRoom(List<Room> roomList) {
@@ -78,7 +77,7 @@ public class FileProcessing {
             FileOutputStream fileOutputStream = new FileOutputStream(file);
             XMLEncoder xmlEncoder = new XMLEncoder(fileOutputStream);
 
-            // Set the PersistenceDelegate for LocalDate
+            // Specialare för att XMLEncoder ska kunna hantera LocalDate
             xmlEncoder.setPersistenceDelegate(LocalDate.class, new LocalDatePersistenceDelegate());
 
             xmlEncoder.writeObject(roomList);
@@ -118,7 +117,7 @@ public class FileProcessing {
             ioe.printStackTrace();
         }
         
-        return roomList; // Return the deserialized guest list
+        return roomList;
 	}
 	
 }

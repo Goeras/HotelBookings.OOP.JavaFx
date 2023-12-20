@@ -18,7 +18,24 @@
    </object>
   </void>
   <void method="add">
-   <object class="application.SingleRoom">
+   <object class="application.SingleRoom" id="SingleRoom0">
+    <void property="dates">
+     <void method="add">
+      <object class="java.time.LocalDate" method="parse">
+       <string>2023-12-25</string>
+      </object>
+     </void>
+     <void method="add">
+      <object class="java.time.LocalDate" method="parse">
+       <string>2023-12-26</string>
+      </object>
+     </void>
+     <void method="add">
+      <object class="java.time.LocalDate" method="parse">
+       <string>2023-12-27</string>
+      </object>
+     </void>
+    </void>
     <void property="roomName">
      <string>Single Room 2</string>
     </void>

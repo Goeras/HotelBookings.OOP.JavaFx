@@ -19,10 +19,8 @@ public class Guest implements Serializable{
 	private int NumberOfNights;
 	private List<LocalDate> dates = new ArrayList<>();
 
-	
-	
-	public Guest() {
-	}
+	// Konstruktorer
+	public Guest() {}
 
 	public Guest(String name, String eMail, String phoneNumber, int bookingNumber, int roomNumber, int numberOfNights, List<LocalDate> dates)
 	{
@@ -34,6 +32,8 @@ public class Guest implements Serializable{
 		this.NumberOfNights = numberOfNights;
 		this.dates.addAll(dates);
 	}
+	
+	// Getter & Setters
 	
 	public String getName() {
 		return name;
@@ -63,10 +63,10 @@ public class Guest implements Serializable{
 		return dates;
 	}
 
-	
-	  public void addDates(List<LocalDate> dates) { this.dates.addAll(dates); }
-	 
-	
+	public void addDates(List<LocalDate> dates) { 
+		this.dates.addAll(dates); 
+	}
+
 	public void setDates(List<LocalDate> dates) {
 		this.dates = dates;
 	}

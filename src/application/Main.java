@@ -34,21 +34,21 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			
-			guestList = fileProcessing.deserializeGuest(guestList);
-			roomList = fileProcessing.deserializeRoom(roomList);
+			guestList = fileProcessing.deserializeGuest(guestList); // Läser in Guest-objekt från xml.
+			roomList = fileProcessing.deserializeRoom(roomList); // Läser in Room-objekt från xml.
 			if(roomList.isEmpty())
 			{
-				bookingStage.createRooms();
+				bookingStage.createRooms(); // OM roomList är tom så skapas rummen. (tex vid en första start av programmet.)
 			}
 			
 			mainMenu = primaryStage;
 			mainMenu.setTitle("Hotell Wigell");
 			mainMenu.setOnCloseRequest( e -> {
-				e.consume();
-				closeProgram();
+				e.consume(); // consumar användarens val att stänga programmet, anropar istället metod closeProgram()
+				closeProgram(); // closeProgram öppnar en ConfirmBox, sparar sedan objekt till xml-fil innan programmet avslutas.
 			});
 			
-			//Använd detta till att välja datum vid ny bokning...
+			// DatePicker, ger användaren möjlighet att välja datum i en liten "kalender"
 			DatePicker datePicker = new DatePicker();
 			datePicker.setDayCellFactory( param -> new DateCell());
 			
@@ -57,12 +57,9 @@ public class Main extends Application {
 			btnShowBookings = new Button("Visa bokningar");
 			btnQuit = new Button("Avsluta");
 			
-			// Buttons funtionality
-			//btnNewBooking.setOnAction( e -> );
-			
 			btnNewBooking.setOnAction( e -> bookingStage.newBooking());
 			btnShowBookings.setOnAction( e -> bookingStage.displayBookings());
-			btnQuit.setOnAction( e -> closeProgram());
+			btnQuit.setOnAction( e -> closeProgram()); // Anropar metod som öppnar en ConfirmBox och sparar objekt till xml innan programmet avslutas.
 			
 			// Labels
 			Label label = new Label();
@@ -90,12 +87,11 @@ public class Main extends Application {
 			//layout.setBottom(buttons);
 			
 			Scene scene = new Scene(layout,300,300);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm()); // Hämtar CSS-designen
 			mainMenu.setScene(scene);
 			mainMenu.show();
 		} catch(Exception e) {
 			e.printStackTrace();
-			System.out.println("Fel i main");
 		}
 	}
 		private void closeProgram()
@@ -103,8 +99,8 @@ public class Main extends Application {
 			Boolean answer = confirmBox.display("Bekräftelse", "Avsluta Program?");
 			if (answer == true)
 			{
-				fileProcessing.serializeGuest(guestList);
-				fileProcessing.serializeRoom(roomList);
+				fileProcessing.serializeGuest(guestList); // Sparar Guest-objekt till fil.
+				fileProcessing.serializeRoom(roomList); // Sparar Room-objekt till fil.
 				mainMenu.close();
 			}
 		}
@@ -114,7 +110,7 @@ public class Main extends Application {
 		launch(args);
 	}
 	
-	// Getters & Setters for Lists..
+	// Getters & Setters
 	public List<Room> getRoomList() {
 		return roomList;
 	}
