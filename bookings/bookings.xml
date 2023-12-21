@@ -7,22 +7,22 @@
      <string>M.Goras@hotmail.com</string>
     </void>
     <void property="bookingNumber">
-     <int>8030</int>
+     <int>8437</int>
     </void>
     <void property="dates">
      <void method="add">
       <object class="java.time.LocalDate" method="parse">
-       <string>2024-01-08</string>
+       <string>2024-01-15</string>
       </object>
      </void>
      <void method="add">
       <object class="java.time.LocalDate" method="parse">
-       <string>2024-01-09</string>
+       <string>2024-01-16</string>
       </object>
      </void>
      <void method="add">
       <object class="java.time.LocalDate" method="parse">
-       <string>2024-01-10</string>
+       <string>2024-01-17</string>
       </object>
      </void>
     </void>
@@ -33,7 +33,7 @@
      <int>2</int>
     </void>
     <void property="phoneNumber">
-     <string>072-2316393</string>
+     <string>072 231 63 93</string>
     </void>
     <void property="roomNumber">
      <int>8</int>
@@ -43,39 +43,73 @@
   <void method="add">
    <object class="application.Guest" id="Guest1">
     <void property="EMail">
-     <string>Hasse.A@kändis.nu</string>
+     <string>dres.puntos@loco.com</string>
     </void>
     <void property="bookingNumber">
-     <int>3189</int>
+     <int>1877</int>
     </void>
     <void property="dates">
      <void method="add">
       <object class="java.time.LocalDate" method="parse">
-       <string>2023-12-25</string>
+       <string>2024-02-14</string>
       </object>
      </void>
      <void method="add">
       <object class="java.time.LocalDate" method="parse">
-       <string>2023-12-26</string>
-      </object>
-     </void>
-     <void method="add">
-      <object class="java.time.LocalDate" method="parse">
-       <string>2023-12-27</string>
+       <string>2024-02-15</string>
       </object>
      </void>
     </void>
     <void property="name">
-     <string>Hasse Alfredsson</string>
+     <string>Dres Puntos</string>
+    </void>
+    <void property="numberOfNights">
+     <int>1</int>
+    </void>
+    <void property="phoneNumber">
+     <string>+45 25 089 63</string>
+    </void>
+    <void property="roomNumber">
+     <int>9</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="application.Guest" id="Guest2">
+    <void property="EMail">
+     <string>lemmy.kilmister@motörhead.com</string>
+    </void>
+    <void property="bookingNumber">
+     <int>2086</int>
+    </void>
+    <void property="dates">
+     <void method="add">
+      <object class="java.time.LocalDate" method="parse">
+       <string>2024-02-21</string>
+      </object>
+     </void>
+     <void method="add">
+      <object class="java.time.LocalDate" method="parse">
+       <string>2024-02-22</string>
+      </object>
+     </void>
+     <void method="add">
+      <object class="java.time.LocalDate" method="parse">
+       <string>2024-02-23</string>
+      </object>
+     </void>
+    </void>
+    <void property="name">
+     <string>Lemmy Kilmister</string>
     </void>
     <void property="numberOfNights">
      <int>2</int>
     </void>
     <void property="phoneNumber">
-     <string>070-2659872</string>
+     <string>023- 666 66</string>
     </void>
     <void property="roomNumber">
-     <int>2</int>
+     <int>11</int>
     </void>
    </object>
   </void>

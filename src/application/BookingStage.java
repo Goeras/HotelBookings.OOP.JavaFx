@@ -26,15 +26,14 @@ import javafx.stage.Stage;
 
 public class BookingStage {
 
+	private List<Room> roomList = new ArrayList<>();
+	private List<Guest> guestList = new ArrayList<>();
 	private List<Room> roomChoices;
+	
+	FileProcessing fileProcessing = new FileProcessing();
 	ConfirmBox confirmBox = new ConfirmBox();
 	
-	// Instansvariabel för åtkomst till getters & setters för Listorna i Main-klassen.
-	private Main mainInstance;
-	public BookingStage(Main mainInstance)
-	{
-		this.mainInstance = mainInstance;
-	}
+	
 
 	// Metoder
 	public void newBooking()
@@ -52,33 +51,33 @@ public class BookingStage {
 		DatePicker checkInPicker = new DatePicker();
 		checkInPicker.setDayCellFactory( param -> new DateCell());
 		checkInPicker.setPromptText("Ankomst");
-		checkInPicker.setMaxWidth(100);
+		checkInPicker.setMaxWidth(110);
 		
 		// -Utchekning (DatePicker)
 		DatePicker checkOutPicker = new DatePicker();
 		checkOutPicker.setDayCellFactory( param -> new DateCell());
 		checkOutPicker.setPromptText("Avfärd");
-		checkOutPicker.setMaxWidth(100);
+		checkOutPicker.setMaxWidth(110);
 		
 		// Antal personer
 		TextField numberOfGuestField = new TextField();
 		numberOfGuestField.setPromptText("Antal Personer");
-		numberOfGuestField.setMaxWidth(100);
+		numberOfGuestField.setMaxWidth(110);
 		
 		// Telefonnummer
         TextField nameField = new TextField();
         nameField.setPromptText("Namn");
-        nameField.setMaxWidth(100);
+        nameField.setMaxWidth(110);
 		
 		// Telefonnummer
         TextField phoneNumberField = new TextField();
         phoneNumberField.setPromptText("Telefonnummer");
-        phoneNumberField.setMaxWidth(100);
+        phoneNumberField.setMaxWidth(110);
         
 		// Mailadress
         TextField emailField = new TextField();
         emailField.setPromptText("E-mail");
-        emailField.setMaxWidth(100);
+        emailField.setMaxWidth(110);
         
         Button btnSearchRoom = new Button("Hitta rum");//Sök efter lediga/lämpliga rum, visa lista.
         btnSearchRoom.setOnAction( e -> {
@@ -95,6 +94,7 @@ public class BookingStage {
         				}
         			}
         		}
+        		else {System.out.println("Roomlist is empty");}
         	} catch (NumberFormatException nfe) { // AlertBox om användaren försökt söka efter rum utan att fylla i nödvändiga uppgifter. Inparametrar specifika för just detta fall.
         		confirmBox.alertBox("Inga rum hittades", "Säkerställ att alla fällt är korrekt ifyllda, eller välj annat datum");
         	}
@@ -146,7 +146,7 @@ public class BookingStage {
 		// ListView med CheckBox för att visa befintliga bokningar samt ge användare möjlighet att avboka en eller flera bokningar.
 		ListView<CheckBox> bookingView = new ListView<>();
 		ObservableList<CheckBox> bookings = FXCollections.observableArrayList();
-		for (Guest g : mainInstance.getGuestList()) // Lägger till varje befintlig bokning till visningslistan med checkbox.
+		for (Guest g : getGuestList()) // Lägger till varje befintlig bokning till visningslistan med checkbox.
 		{
 			CheckBox checkBox = new CheckBox(g.toString());
 			bookings.add(checkBox);
@@ -167,7 +167,7 @@ public class BookingStage {
         	{
         		if (c.isSelected()) {
                     int index = bookings.indexOf(c);
-                    bookingsToRemove.add(mainInstance.guestList.get(index));
+                    bookingsToRemove.add(guestList.get(index));
                 }
         	}
         	cancelBookings(bookingsToRemove);
@@ -198,7 +198,6 @@ public class BookingStage {
         borderPane.setTop(vBoxTop);
         borderPane.setCenter(scrollPane);
         borderPane.setBottom(vBoxBottom);
-        //BorderPane.setAlignment(vBoxBottom, Pos.BOTTOM_RIGHT);
         
         Scene scene = new Scene(borderPane, 400, 400);
         displayBookingStage.setScene(scene);
@@ -209,6 +208,10 @@ public class BookingStage {
 	
 	public List<Room> searchAvailableRoom(DatePicker strCheckin, DatePicker strCheckout, TextField strNumberOfGuests)
 	{
+		if(roomList.isEmpty())
+		{
+			System.out.println("there are no created rooms");
+		}
 		List<Room> availableRooms =  new ArrayList<>(); // Lista för lämpliga/lediga rum som sedan returneras.
 		try 
 		{
@@ -223,7 +226,7 @@ public class BookingStage {
 			}
 			if(numberOfGuests <= 2)
 			{
-				for(Room room : mainInstance.getRoomList()) // SÖker efter alla rum..
+				for(Room room : roomList) // SÖker efter alla rum..
 				{
 					boolean containsAnyDate = room.getDates().stream().anyMatch(wantedDates::contains); // Kollar om önskade datum finns i bokade datum för varje rum.
 					if(!containsAnyDate)
@@ -234,7 +237,7 @@ public class BookingStage {
 			}
 			else if(numberOfGuests <= 4)
 			{
-				for(Room room : mainInstance.getRoomList())
+				for(Room room : roomList)
 				{
 					if(room instanceof DoubleRoom || room instanceof SuiteRoom) // Söker efter dubbelrum och suite..
 					{
@@ -248,7 +251,7 @@ public class BookingStage {
 			}
 			else if(numberOfGuests <= 6)
 			{
-				for(Room room : mainInstance.getRoomList())
+				for(Room room : roomList)
 				{
 					if(room instanceof SuiteRoom) // söker enbart efter suite..
 					{
@@ -311,7 +314,7 @@ public class BookingStage {
 	{
 		boolean bookingComplete = false;
 		try {
-			// hämtar värdet ifrån datatypen DatePicker till en LocalDate
+	    // hämtar värdet ifrån datatypen DatePicker till en LocalDate
 		LocalDate checkIn = strCheckin.getValue();
 		LocalDate checkOut = strCheckout.getValue();
 		
@@ -334,7 +337,7 @@ public class BookingStage {
 		if(answer == true) // Om bokningen bekräftas så bokas rummet.
 		{
 		Guest guest = new Guest(name, eMail, phoneNumber, bookingNumber, roomNumber, numberOfNights, datesToBook); // Nytt Guest-objekt skapas upp med användarens ifyllda värden.
-		mainInstance.addGuest(guest); // Använder instansvaiabeln för att lägga till gäst i guestList.
+		guestList.add(guest); // Använder instansvaiabeln för att lägga till gäst i guestList.
 		room.addDates(datesToBook);
 		bookingComplete = true;
 		}
@@ -368,7 +371,7 @@ public class BookingStage {
 	    	try {
 	    		int intBookingNumber = Integer.parseInt(bookingNumber); // Parsar användarens input till en int.
 	    		List<Guest> guestForRemoval = new ArrayList<>();
-	    		for(Guest guest : mainInstance.getGuestList())
+	    		for(Guest guest : guestList)
 	    		{
 	    			if(guest.getBookingNumber() == intBookingNumber)
 	    			{
@@ -442,7 +445,7 @@ public class BookingStage {
 			if (answer == true)
 			{
 				for(Guest guest : bookingsToCancel) { // För varje gäst listan för avbokning.
-					for(Room room : mainInstance.roomList){ // För varje rum i rumsLista.
+					for(Room room : roomList){ // För varje rum i rumsLista.
 						if(room.getRoomNumber() == guest.getRoomNumber()) // Om rumsnumret för rum matchar gästens rumsnummer.
 						{
 							List<Guest> removeGuestList = new ArrayList<>();
@@ -455,7 +458,7 @@ public class BookingStage {
 						}
 					}
 				}
-				mainInstance.guestList.removeAll(bookingsToCancel); // Tar bort alla avbokningar ifrån gästlistan.
+				guestList.removeAll(bookingsToCancel); // Tar bort alla avbokningar ifrån gästlistan.
 				
 			}
 		} catch (Exception e) {
@@ -469,7 +472,7 @@ public class BookingStage {
 		Random random = new Random();
 		int bookingNumber = random.nextInt(9000)+1000; // Skapar ett random bokningsnummer mellan 1000 och 9999.
 		
-		for(Guest guest : mainInstance.getGuestList()) // Kontrollerar om bokningsnumret är unikt eller redan finns i systemet.
+		for(Guest guest : guestList) // Kontrollerar om bokningsnumret är unikt eller redan finns i systemet.
 		{
 			if(guest.getBookingNumber() == bookingNumber)
 			{
@@ -480,9 +483,9 @@ public class BookingStage {
 		return bookingNumber; // Returnerar ett unikt bokningsnummer.
 	}
 	
-	public List<Room> createRooms() // Metod för att skapa upp nya rum om roomList är tom.
+	public void createRooms() // Metod för att skapa upp nya rum om roomList är tom.
 	{
-		List<Room> roomList = new ArrayList<>();
+		
 		Room singleRoom1 = new SingleRoom("Single Room 1", "yard view", 1, "Single");
 		roomList.add(singleRoom1);
 		Room singleRoom2 = new SingleRoom("Single Room 2", "yard view", 2, "Single");
@@ -510,7 +513,45 @@ public class BookingStage {
 		Room suiteRoom2 = new SuiteRoom("Suite Room 2", "Sea view", 12, "Suite");
 		roomList.add(suiteRoom2);
 		
+	}
+	
+	public void serialization() // sparar ner Guest och Room objekten till xml.
+	{
+		fileProcessing.serializeRoom(roomList);
+		fileProcessing.serializeGuest(guestList);
+	}
+	
+	public void deSerialization() // Läser in Guest och Room objekten från xml.
+	{
+		roomList = fileProcessing.deserializeRoom(roomList);
+		guestList = fileProcessing.deserializeGuest(guestList);
+	}
+
+	// Getters & Setters.
+	public List<Room> getRoomList() {
 		return roomList;
 	}
+
+	public void setRoomList(List<Room> roomList) {
+		this.roomList = roomList;
+	}
+	
+	public void addRoomList(List<Room> roomList) {
+		this.roomList.addAll(roomList);
+	}
+
+	public List<Guest> getGuestList() {
+		return guestList;
+	}
+
+	public void setGuestList(List<Guest> guestList) {
+		this.guestList = guestList;
+	}
+	
+	public void addGuestList(List<Guest> guestList) {
+		this.guestList.addAll(guestList);
+	}
+	
+	
 	
 }

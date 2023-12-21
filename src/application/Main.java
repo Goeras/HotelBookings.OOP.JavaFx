@@ -1,7 +1,5 @@
 package application;
 	
-import java.util.ArrayList;
-import java.util.List;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -17,13 +15,10 @@ import javafx.scene.layout.VBox;
 
 
 public class Main extends Application {
-		
-	List<Room> roomList = new ArrayList<>();
-	List<Guest> guestList = new ArrayList<>();
 	
-	BookingStage bookingStage = new BookingStage(this);
+	
+	BookingStage bookingStage = new BookingStage();
 	ConfirmBox confirmBox = new ConfirmBox();
-	FileProcessing fileProcessing = new FileProcessing();
 	
 	Button btnNewBooking;
 	Button btnShowBookings;
@@ -34,16 +29,16 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			
-			guestList = fileProcessing.deserializeGuest(guestList); // Läser in Guest-objekt från xml.
-			roomList = fileProcessing.deserializeRoom(roomList); // Läser in Room-objekt från xml.
-			if(roomList.isEmpty())
+			bookingStage.deSerialization(); // Läser in bokningar och rum från XML
+			
+			if(bookingStage.getRoomList().isEmpty())
 			{
 				bookingStage.createRooms(); // OM roomList är tom så skapas rummen. (tex vid en första start av programmet.)
 			}
 			
 			mainMenu = primaryStage;
 			mainMenu.setTitle("Hotell Wigell");
-			mainMenu.setOnCloseRequest( e -> {
+			mainMenu.setOnCloseRequest( e -> { // event då användaren stänger programmet på krysset uppe i hörnet.
 				e.consume(); // consumar användarens val att stänga programmet, anropar istället metod closeProgram()
 				closeProgram(); // closeProgram öppnar en ConfirmBox, sparar sedan objekt till xml-fil innan programmet avslutas.
 			});
@@ -99,8 +94,7 @@ public class Main extends Application {
 			Boolean answer = confirmBox.display("Bekräftelse", "Avsluta Program?");
 			if (answer == true)
 			{
-				fileProcessing.serializeGuest(guestList); // Sparar Guest-objekt till fil.
-				fileProcessing.serializeRoom(roomList); // Sparar Room-objekt till fil.
+				bookingStage.serialization(); // Sparar bokningar och rum till XML innan avslut.
 				mainMenu.close();
 			}
 		}
@@ -110,23 +104,5 @@ public class Main extends Application {
 		launch(args);
 	}
 	
-	// Getters & Setters
-	public List<Room> getRoomList() {
-		return roomList;
-	}
-	public void setRoomList(List<Room> roomList) {
-		this.roomList.addAll(roomList);
-	}
-	public void addRoom(Room room){
-		this.roomList.add(room);
-	}
-	public List<Guest> getGuestList() {
-		return guestList;
-	}
-	public void setGuestList(List<Guest> guestList) {
-		this.guestList.addAll(guestList);
-	}
-	public void addGuest(Guest guest) {
-		this.guestList.add(guest);
-	}
+	
 }

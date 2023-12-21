@@ -12,8 +12,7 @@ import java.util.List;
 public class FileProcessing {
 
 	public void serializeGuest(List<Guest> guestList) {
-        for (Guest guest : guestList) {
-        }
+        
         try {
             String filepath = "./bookings/bookings.xml";
             File file = new File(filepath);
