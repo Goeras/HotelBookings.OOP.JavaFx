@@ -48,14 +48,12 @@ public class BookingStage {
 		
 		
 		// Inchekning (DatePicker)
-		DatePicker checkInPicker = new DatePicker();
-		checkInPicker.setDayCellFactory( param -> new DateCell());
+		DatePicker checkInPicker = createRestrictedDatePicker(); // Anropar metod för att göra passerade datum ovalbara för användaren.
 		checkInPicker.setPromptText("Ankomst");
 		checkInPicker.setMaxWidth(110);
 		
 		// -Utchekning (DatePicker)
-		DatePicker checkOutPicker = new DatePicker();
-		checkOutPicker.setDayCellFactory( param -> new DateCell());
+		DatePicker checkOutPicker = createRestrictedDatePicker();
 		checkOutPicker.setPromptText("Avfärd");
 		checkOutPicker.setMaxWidth(110);
 		
@@ -131,6 +129,25 @@ public class BookingStage {
         bookingStage.setScene(scene);
         bookingStage.show();
 	}
+	
+	private DatePicker createRestrictedDatePicker() { // Metod som skapar DatePicker celler och begränsar användarens val till EJ passerade datum.
+        DatePicker datePicker = new DatePicker();
+
+        datePicker.setDayCellFactory(param -> new DateCell() {
+            @Override
+            public void updateItem(LocalDate item, boolean empty) {
+                super.updateItem(item, empty);
+
+                // OM datumet cellen i DatePicker passerat dagens datum:
+                if (item.isBefore(LocalDate.now())) { // Jämför mot dagens datum.
+                    setDisable(true); // Disablar användarens möjlighet att välja cellen.
+                    setStyle("-fx-background-color: #9b94a1;"); 
+                }
+            }
+        });
+
+        return datePicker;
+    }
 	
 	public void displayBookings()
 	{

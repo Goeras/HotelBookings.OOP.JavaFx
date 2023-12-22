@@ -79,7 +79,6 @@ public class Main extends Application {
 			BorderPane layout = new BorderPane();
 			layout.setTop(hBoxTop);
 			layout.setCenter(buttons);
-			//layout.setBottom(buttons);
 			
 			Scene scene = new Scene(layout,300,300);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm()); // Hämtar CSS-designen
