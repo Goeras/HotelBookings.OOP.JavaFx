@@ -79,6 +79,9 @@ public class BookingStage {
         
         Button btnSearchRoom = new Button("Hitta rum");//Sök efter lediga/lämpliga rum, visa lista.
         btnSearchRoom.setOnAction( e -> {
+        	boolean dateCheck = checkInBeforeCheckOut(checkInPicker, checkOutPicker);
+        	// kontrollerar att alla fällt är ifyllda och att utcheck är efter incheck.
+        	if(dateCheck && !nameField.getText().isEmpty() && !phoneNumberField.getText().isEmpty() && !emailField.getText().isEmpty()) {
         	try {
         		roomChoices = searchAvailableRoom(checkInPicker, checkOutPicker, numberOfGuestField); // Anropar metod för rumssökning med nödvändiga inparametrar.
         		if(!roomChoices.isEmpty()) {
@@ -95,6 +98,10 @@ public class BookingStage {
         		else {System.out.println("Roomlist is empty");}
         	} catch (NumberFormatException nfe) { // AlertBox om användaren försökt söka efter rum utan att fylla i nödvändiga uppgifter. Inparametrar specifika för just detta fall.
         		confirmBox.alertBox("Inga rum hittades", "Säkerställ att alla fällt är korrekt ifyllda, eller välj annat datum");
+        	}
+        	}
+        	else {
+        		confirmBox.alertBox("Kontrollera datum", "Säkerställ att alla fält är korrekt ifyllda och att Ut-check är efter In-check.");
         	}
 
         });
@@ -129,7 +136,20 @@ public class BookingStage {
         bookingStage.setScene(scene);
         bookingStage.show();
 	}
-	
+	private boolean checkInBeforeCheckOut(DatePicker checkInPicker, DatePicker checkOutPicker)
+	{
+		boolean datesInOrder = false;
+		LocalDate checkInDate = checkInPicker.getValue();
+		LocalDate checkOutDate = checkOutPicker.getValue();
+
+		if (checkInDate != null && checkOutDate != null) {
+			if (checkInDate.isBefore(checkOutDate)) {
+				datesInOrder = true;
+			}
+		}
+		return datesInOrder;
+
+	}
 	private DatePicker createRestrictedDatePicker() { // Metod som skapar DatePicker celler och begränsar användarens val till EJ passerade datum.
         DatePicker datePicker = new DatePicker();
 
