@@ -6,8 +6,6 @@ import javafx.geometry.Pos;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.DateCell;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -42,10 +40,6 @@ public class Main extends Application {
 				e.consume(); // consumar användarens val att stänga programmet, anropar istället metod closeProgram()
 				closeProgram(); // closeProgram öppnar en ConfirmBox, sparar sedan objekt till xml-fil innan programmet avslutas.
 			});
-			
-			// DatePicker, ger användaren möjlighet att välja datum i en liten "kalender"
-			DatePicker datePicker = new DatePicker();
-			datePicker.setDayCellFactory( param -> new DateCell());
 			
 			// Buttons
 			btnNewBooking = new Button("Ny Bokning");

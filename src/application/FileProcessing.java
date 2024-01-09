@@ -24,7 +24,6 @@ public class FileProcessing {
 
             // Specialare för att XMLEncoder ska kunna hantera LocalDate
             xmlEncoder.setPersistenceDelegate(LocalDate.class, new LocalDatePersistenceDelegate());
-
             xmlEncoder.writeObject(guestList);
             xmlEncoder.close();
             fileOutputStream.close();

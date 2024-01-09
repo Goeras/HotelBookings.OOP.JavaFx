@@ -5,7 +5,7 @@ import java.beans.Expression;
 import java.beans.PersistenceDelegate;
 import java.time.LocalDate;
 
-    // Override på två metoder från klassen "PersistenceDelegate" från java.beans, som används av XMLEncoder och XMLDecoder för att hantera specialfall vid serialisering och deserialisering av objekt.
+    // Override på två metoder från den abstrakta klassen "PersistenceDelegate" från java.beans, som används av XMLEncoder och XMLDecoder för att hantera specialfall vid serialisering och deserialisering av objekt.
 public class LocalDatePersistenceDelegate extends PersistenceDelegate {
     
 	// Override-metod för att lösa serialiseringsprocessen med LocalDate som XMLEncoder annars inte klarar av.

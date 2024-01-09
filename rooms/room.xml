@@ -2,7 +2,24 @@
 <java version="20.0.2" class="java.beans.XMLDecoder">
  <object class="java.util.ArrayList">
   <void method="add">
-   <object class="application.SingleRoom">
+   <object class="application.SingleRoom" id="SingleRoom0">
+    <void property="dates">
+     <void method="add">
+      <object class="java.time.LocalDate" method="parse">
+       <string>2024-01-24</string>
+      </object>
+     </void>
+     <void method="add">
+      <object class="java.time.LocalDate" method="parse">
+       <string>2024-01-25</string>
+      </object>
+     </void>
+     <void method="add">
+      <object class="java.time.LocalDate" method="parse">
+       <string>2024-01-26</string>
+      </object>
+     </void>
+    </void>
     <void property="roomName">
      <string>Single Room 1</string>
     </void>
@@ -114,24 +131,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="application.DoubleRoom" id="DoubleRoom0">
-    <void property="dates">
-     <void method="add">
-      <object class="java.time.LocalDate" method="parse">
-       <string>2024-01-15</string>
-      </object>
-     </void>
-     <void method="add">
-      <object class="java.time.LocalDate" method="parse">
-       <string>2024-01-16</string>
-      </object>
-     </void>
-     <void method="add">
-      <object class="java.time.LocalDate" method="parse">
-       <string>2024-01-17</string>
-      </object>
-     </void>
-    </void>
+   <object class="application.DoubleRoom">
     <void property="roomName">
      <string>Double Room 2</string>
     </void>
@@ -147,19 +147,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="application.DoubleRoom" id="DoubleRoom1">
-    <void property="dates">
-     <void method="add">
-      <object class="java.time.LocalDate" method="parse">
-       <string>2024-02-14</string>
-      </object>
-     </void>
-     <void method="add">
-      <object class="java.time.LocalDate" method="parse">
-       <string>2024-02-15</string>
-      </object>
-     </void>
-    </void>
+   <object class="application.DoubleRoom">
     <void property="roomName">
      <string>Double Room 3</string>
     </void>
@@ -206,6 +194,26 @@
      <void method="add">
       <object class="java.time.LocalDate" method="parse">
        <string>2024-02-23</string>
+      </object>
+     </void>
+     <void method="add">
+      <object class="java.time.LocalDate" method="parse">
+       <string>2024-02-07</string>
+      </object>
+     </void>
+     <void method="add">
+      <object class="java.time.LocalDate" method="parse">
+       <string>2024-02-08</string>
+      </object>
+     </void>
+     <void method="add">
+      <object class="java.time.LocalDate" method="parse">
+       <string>2024-02-09</string>
+      </object>
+     </void>
+     <void method="add">
+      <object class="java.time.LocalDate" method="parse">
+       <string>2024-02-10</string>
       </object>
      </void>
     </void>

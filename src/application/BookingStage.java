@@ -174,7 +174,7 @@ public class BookingStage {
 		
 		
 		Stage displayBookingStage = new Stage();
-		displayBookingStage.setTitle("Ny Bokning");
+		displayBookingStage.setTitle("Bokninsregister");
 		displayBookingStage.initModality(Modality.APPLICATION_MODAL); // Avgränsar så att användare ej kan interagera med bakomvarande fönster
 	
 		Label label = new Label();
@@ -481,7 +481,7 @@ public class BookingStage {
 			Boolean answer = confirmBox.display("Bekräftelse", "Avboka?"); // ConfirmBox för att bekräfta avbokningen.
 			if (answer == true)
 			{
-				for(Guest guest : bookingsToCancel) { // För varje gäst listan för avbokning.
+				for(Guest guest : bookingsToCancel) { // För varje gäst i listan för avbokning.
 					for(Room room : roomList){ // För varje rum i rumsLista.
 						if(room.getRoomNumber() == guest.getRoomNumber()) // Om rumsnumret för rum matchar gästens rumsnummer.
 						{

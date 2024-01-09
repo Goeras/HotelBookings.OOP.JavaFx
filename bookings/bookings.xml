@@ -4,79 +4,6 @@
   <void method="add">
    <object class="application.Guest" id="Guest0">
     <void property="EMail">
-     <string>M.Goras@hotmail.com</string>
-    </void>
-    <void property="bookingNumber">
-     <int>8437</int>
-    </void>
-    <void property="dates">
-     <void method="add">
-      <object class="java.time.LocalDate" method="parse">
-       <string>2024-01-15</string>
-      </object>
-     </void>
-     <void method="add">
-      <object class="java.time.LocalDate" method="parse">
-       <string>2024-01-16</string>
-      </object>
-     </void>
-     <void method="add">
-      <object class="java.time.LocalDate" method="parse">
-       <string>2024-01-17</string>
-      </object>
-     </void>
-    </void>
-    <void property="name">
-     <string>Markus Göras</string>
-    </void>
-    <void property="numberOfNights">
-     <int>2</int>
-    </void>
-    <void property="phoneNumber">
-     <string>072 231 63 93</string>
-    </void>
-    <void property="roomNumber">
-     <int>8</int>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="application.Guest" id="Guest1">
-    <void property="EMail">
-     <string>dres.puntos@loco.com</string>
-    </void>
-    <void property="bookingNumber">
-     <int>1877</int>
-    </void>
-    <void property="dates">
-     <void method="add">
-      <object class="java.time.LocalDate" method="parse">
-       <string>2024-02-14</string>
-      </object>
-     </void>
-     <void method="add">
-      <object class="java.time.LocalDate" method="parse">
-       <string>2024-02-15</string>
-      </object>
-     </void>
-    </void>
-    <void property="name">
-     <string>Dres Puntos</string>
-    </void>
-    <void property="numberOfNights">
-     <int>1</int>
-    </void>
-    <void property="phoneNumber">
-     <string>+45 25 089 63</string>
-    </void>
-    <void property="roomNumber">
-     <int>9</int>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="application.Guest" id="Guest2">
-    <void property="EMail">
      <string>lemmy.kilmister@motörhead.com</string>
     </void>
     <void property="bookingNumber">
@@ -110,6 +37,89 @@
     </void>
     <void property="roomNumber">
      <int>11</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="application.Guest" id="Guest1">
+    <void property="EMail">
+     <string>rj.dio@rainbow.com</string>
+    </void>
+    <void property="bookingNumber">
+     <int>9404</int>
+    </void>
+    <void property="dates">
+     <void method="add">
+      <object class="java.time.LocalDate" method="parse">
+       <string>2024-02-07</string>
+      </object>
+     </void>
+     <void method="add">
+      <object class="java.time.LocalDate" method="parse">
+       <string>2024-02-08</string>
+      </object>
+     </void>
+     <void method="add">
+      <object class="java.time.LocalDate" method="parse">
+       <string>2024-02-09</string>
+      </object>
+     </void>
+     <void method="add">
+      <object class="java.time.LocalDate" method="parse">
+       <string>2024-02-10</string>
+      </object>
+     </void>
+    </void>
+    <void property="name">
+     <string>Ronnie James Dio</string>
+    </void>
+    <void property="numberOfNights">
+     <int>3</int>
+    </void>
+    <void property="phoneNumber">
+     <string>+48 10 19568666</string>
+    </void>
+    <void property="roomNumber">
+     <int>11</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="application.Guest" id="Guest2">
+    <void property="EMail">
+     <string>WGMI@bitcoin.com</string>
+    </void>
+    <void property="bookingNumber">
+     <int>9392</int>
+    </void>
+    <void property="dates">
+     <void method="add">
+      <object class="java.time.LocalDate" method="parse">
+       <string>2024-01-24</string>
+      </object>
+     </void>
+     <void method="add">
+      <object class="java.time.LocalDate" method="parse">
+       <string>2024-01-25</string>
+      </object>
+     </void>
+     <void method="add">
+      <object class="java.time.LocalDate" method="parse">
+       <string>2024-01-26</string>
+      </object>
+     </void>
+    </void>
+    <void property="name">
+     <string>Satoshi Nakamoto</string>
+    </void>
+    <void property="numberOfNights">
+     <int>2</int>
+    </void>
+    <void property="phoneNumber">
+     <string>070 - 106 65 58</string>
+    </void>
+    <void property="roomNumber">
+     <int>1</int>
     </void>
    </object>
   </void>
